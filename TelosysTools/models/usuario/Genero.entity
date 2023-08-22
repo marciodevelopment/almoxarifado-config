@@ -1,0 +1,11 @@
+// Entity Documento
+@DbTable(Genero)
+#path(generos)
+#mensagem(Genero)
+#delete
+Genero {
+	cdGenero : int { @Id @DbName(cdGenero) #web(get, pesquisa)} ;
+	dsGenero: string {@MinLen(5) @NotEmpty @MaxLen(255) #mensagem(Genero) #web(get, put, post, pesquisa)};
+	sgGenero: string {@MinLen(5) @MaxLen(255) #mensagem(Genero) #web(get, put, post, pesquisa)};
+	idSituacao: int {@NotNull #typeValues(1,ATIVO,Ativo&0,INATIVO,Inativo) #mensagem(Situação)} ;
+}

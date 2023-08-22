@@ -1,0 +1,38 @@
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+      hibernate:
+        orm:
+          jdbc:
+            bind: trace
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: trace
+  pattern:
+    console: '%d{dd-MM-yyyy HH:mm:ss} %magenta([%thread]) %highlight(%-5level) %logger.%M
+      - %msg%n'
+spring:      
+  datasource:
+    url: jdbc:postgresql://localhost:5432/homol
+    username: marcio
+    password: marcio
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      show-sql: true
+      format-sq: true
+      ddl-auto: none # Use 'update' for development, 'none' for production
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.generate-ddl: false    
+  liquibase:
+    enabled: true
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    url: ${spring.datasource.url}
+    change-log: classpath:db/changelog/db.changelog-master.yaml

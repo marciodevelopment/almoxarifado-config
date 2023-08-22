@@ -1,0 +1,31 @@
+
+Estudar Git  - PR request
+Estudar Gitlab - Ci/CD
+Criar o mapper para um para mutios no gerador de codigo
+
+
+****** Como baixar os templates do telosys do github ? -> OK *********
+Telosys
+- Comitar os templates no git hub
+- Criar uma pasta no github para colocar os templates
+- Baixar do github
+
+
+Eclispse
+Java -> Editor -> Code mining - Show method parameters
+
+-- Configurar no gerador, se for cascade indicar o mappedBy se não, vai gerar erro ao inserir
+@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "usuario")
+
+
+********* Como configurar o liquibase para teste ? **********
+Configurar o applicaton-test
+
+
+******* Gerar converter de uppercase para request *******
+feito
+
+
+** feito
+Verifificar no update para não abrir transacao
+

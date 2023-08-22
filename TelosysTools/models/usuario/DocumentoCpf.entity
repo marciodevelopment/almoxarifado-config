@@ -1,0 +1,10 @@
+// Entity Documento
+#mensagem(Documento Cpf)
+#delete
+DocumentoCpf {
+	cdDocumentoCpf : int { @Id @DbName(cdDocumentoCpf)} ;
+	nrDocumento : string { @NotNull @NotEmpty @MaxLen(50) #mensagem(Número Cpf)};
+	idSituacao: int {@NotNull #typeValues(1,ATIVO,Ativo&0,INATIVO,Inativo) #mensagem(Situação)} ;
+	usuario : Usuario {#mensagem(Usuario) @OneToOne #NotNull};
+	cdUsuario : int { @DbName(cdUsuario) @FK(Usuario.cdUsuario)};
+}

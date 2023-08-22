@@ -1,0 +1,20 @@
+#delete
+#path(usuarios)
+Usuario {
+  cdUsuario : int { @Id @DbName(cdUsuario) @NotNull @NotEmpty #web(get, pesquisa) };
+  nmUsuario : string { @NotNull @NotEmpty @MinLen(5) @MaxLen(255) #mensagem(Nome) #web(get, put, post, pesquisa)};
+  nmMae : string { @NotNull @NotEmpty @MinLen(5) @MaxLen(255) #mensagem(Nome Mãe) #web(get, put, post, pesquisa)};
+  nmPai: string {#mensagem(Nome Pai) #web(get, put, post)};
+  idSexo: int {@NotNull #typeValues(1,MASCULINO,Masculino&2,FEMININO,Feminino) #mensagem(Sexo) #web(get, put, post, pesquisa)} ;
+  idSituacao: int {@NotNull #mensagem(Situação)} ;
+  documento: DocumentoCpf {@OneToOne #NotNull #mensagem(Documento) #cascade(ALL) #pesquisaMap(nrDocumento)};
+  // Implementar #pesquisaMap(nrDocumento) para retornar na view
+  
+  genero : Genero {#mensagem(Gernero) #NotNull};
+  cdGenero : int { @DbName(cdGenero) @FK(Genero.cdGenero)};
+}
+
+
+
+
+
