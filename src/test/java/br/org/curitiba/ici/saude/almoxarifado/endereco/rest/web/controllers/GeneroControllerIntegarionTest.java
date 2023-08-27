@@ -24,13 +24,15 @@ import br.org.curitiba.ici.saude.almoxarifado.endereco.rest.web.requests.GeneroN
 import br.org.curitiba.ici.saude.almoxarifado.endereco.rest.web.responses.GeneroResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Sql({"/db/init-script2.sql"})
 @TestMethodOrder(OrderAnnotation.class)
-@ActiveProfiles("test")
+@ActiveProfiles("test-pg")
 @SpringBootTest(classes = AlmoxarifadoApplication.class,
     webEnvironment = WebEnvironment.RANDOM_PORT)
+@Transactional
 class GeneroControllerIntegarionTest {
   @LocalServerPort
   private int port;

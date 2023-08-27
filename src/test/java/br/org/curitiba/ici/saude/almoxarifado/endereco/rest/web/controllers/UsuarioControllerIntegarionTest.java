@@ -27,7 +27,7 @@ import io.restassured.response.Response;
 
 
 @TestMethodOrder(OrderAnnotation.class)
-@ActiveProfiles("test")
+@ActiveProfiles("test-pg")
 @SpringBootTest(classes = AlmoxarifadoApplication.class,
     webEnvironment = WebEnvironment.RANDOM_PORT)
 class UsuarioControllerIntegarionTest {
